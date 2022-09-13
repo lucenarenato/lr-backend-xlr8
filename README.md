@@ -45,6 +45,9 @@ Sample output
 
 ## Usei postman para retornar os dados em JSON
 
+<p align="center"><img src="2022-09-13_13-47.png" width="600"></p>
+
+
 - Import to Postman => xlr8.postman_collection.json
 
 OR
