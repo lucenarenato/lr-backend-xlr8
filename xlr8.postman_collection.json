@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "908a4a5f-54de-4f56-9a67-fddac8d14d2c",
+		"name": "xlr8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2775126"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/search",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"latitude\": \"-23.524727\", \n    \"longitude\": \"-46.4296952\"\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

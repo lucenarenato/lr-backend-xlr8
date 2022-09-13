@@ -42,3 +42,18 @@ Sample output
 ● Hotel Lisbon, 1.7 KM, 23.56 EUR
 ● Hotel London, 8 KM, 11.56 EUR
 ● Hotel XPTO, 21.56 KM, 99.56 EUR
+
+## Usei postman para retornar os dados em JSON
+
+- Import to Postman => xlr8.postman_collection.json
+
+OR
+
+- URL POST: http://localhost:8000/api/search
+
+```json
+{
+	"latitude": "-23.524727", 
+    "longitude": "-46.4296952"	
+}
+```
