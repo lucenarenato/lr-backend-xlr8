@@ -102,6 +102,7 @@ class SearchController extends Controller
         return $hotelListFormated;
     }
 
+    // format distance km, priecing eur
     private static function getFormatedHotelList(array $hotels)
     {
         $hotelListFormated = [];
@@ -143,8 +144,7 @@ class SearchController extends Controller
         });
     }
 
-
-
+    // removi esta function
     protected function selectedEndpoint()
     {
         $url1 = file_get_contents(env('SOURCE1', 'https://xlr8-interview-files.s3.eu-west-2.amazonaws.com/source_1.json'));
@@ -156,4 +156,5 @@ class SearchController extends Controller
         $selected_endpoint = json_encode($array);
         return $selected_endpoint;
     }
+
 }
