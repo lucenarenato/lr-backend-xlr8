@@ -60,3 +60,14 @@ OR
     "longitude": "-46.4296952"	
 }
 ```
+
+## Dados que utilizei para testes.
+```
+- "latitude": "38.7071", 
+- "longitude": "-9.13549"	
+
+- "latitude": "-23.524727", 
+- "longitude": "-46.4296952"	
+```
+
+- Renato Lucena 2022
