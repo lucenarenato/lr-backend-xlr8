@@ -23,14 +23,14 @@ class SearchController extends Controller
      */
     private static function calculateDistance(float $lat1, float $lon1, float $lat2, float $lon2)
     {
-
+        // pi — Obtém o valor de pi:3.1415926535898
         $pi80 = M_PI / 180;
         $lat1 *= $pi80;
         $lon1 *= $pi80;
         $lat2 *= $pi80;
         $lon2 *= $pi80;
-
-        $r = 6372.797; // mean radius of Earth in km
+        // Google:radius of Earth = 6371 kilometers
+        $r = 6372.797; // raio médio da Terra em km
         $dlat = $lat2 - $lat1;
         $dlon = $lon2 - $lon1;
         $a = sin($dlat / 2) * sin($dlat / 2) + cos($lat1) * cos($lat2) * sin($dlon / 2) * sin($dlon / 2);
@@ -51,7 +51,7 @@ class SearchController extends Controller
      */
     public function getNearbyHotels(Request $request)
     {
-        // Get data from get request
+        // Get data from get request | file_get_contents — Lê todo o conteúdo de um arquivo para uma string
         $url1 = file_get_contents(env('SOURCE1', 'https://xlr8-interview-files.s3.eu-west-2.amazonaws.com/source_1.json'));
         $url2 = file_get_contents(env('SOURCE2', 'https://xlr8-interview-files.s3.eu-west-2.amazonaws.com/source_2.json'));
 
@@ -89,7 +89,6 @@ class SearchController extends Controller
             );
             array_push($hotelList, $hotel);
         }
-
 
         // Check if orderby is "pricepernight" and return the data according "orderBy" choice.
         if ($orderby == "pricepernight") {
@@ -136,6 +135,7 @@ class SearchController extends Controller
      */
     private static function orderByPrice(array &$hotelList)
     {
+        // usort:Essa função irá ordenar um array pelos valores usando uma função de classificação definida pelo usuário. Se o array precisar ser ordenado utilizando um critério não trivial, você deve usar essa função.
         usort($hotelList, function ($hotel1, $hotel2) {
             if ($hotel1->getPrice() === $hotel2->getPrice()) {
                 return 0;
