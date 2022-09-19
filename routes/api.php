@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/search', 'SearchController@getNearbyHotels');
+Route::post('/view', 'SearchFrontController@getNearbyHotels');
