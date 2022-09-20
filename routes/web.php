@@ -17,7 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/getView', 'SearchController@getView')->name('getView');
 
 Route::get('maps', function () {
     return view('maps');
