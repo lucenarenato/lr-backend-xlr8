@@ -69,21 +69,41 @@
     </ul>
   </div>
 
-    <h1 class='text-center header mb-2 pb-1'>Bem vindo a <strong>#plataforma de hoteis</strong> </h1>
+    <h1 class='text-center header mb-2 pb-1'>Bem vindo a <strong>busca de hospedagens</strong> </h1>
     {{ csrf_field() }}
-    <input id="lat" type="text" value="38.7071">
-    <input id="long" type="text" value="-9.13549">
-    <input id="km" type="text" value="100">
-    <button id="btnbusca" onclick="buscar()">Buscar</button>
+    <table class="table" style="border: 1px solid; margin-top: 5px; width: 50%">
+        <tr style="padding: 5px;">
+            <td>
+                <label for="floatingInput">Latitude</label>
+                <input class="form-control" id="lat" type="text" value="38.7071">
+            </td>
+            <td>
+                <label for="floatingInput">Longitude</label>
+                <input class="form-control" id="long" type="text" value="-9.13549">
+            </td>
+            <td>
+                <label for="floatingInput">KM</label>
+                <input class="form-control" id="km" type="text" value="100">
+            </td>
+            <td><br>
+                <button class="btn btn-primary" id="btnbusca" onclick="startSpinner()">Buscar</button>
+            </td>
+            <td><br>
+                <img src="img/spinner.gif" id="spinner" style="width: 45px; height: 45px; visibility: hidden;">
+            </td>
+        </tr>
+    </table>
+
     <!-- aqui você define a div e dá um nome id pra ela. Aí esse nome id você referencia nas chamadas de criação do mapa logo abaixo no script -->
     <div id="meuMapa" style="min-height: 800px;height: 600px;"></div>
 
     </div>
     <script>
-        var element = document.getElementById('osm-map');
         const latitude = document.getElementById('lat');
         const longitude = document.getElementById('long');
         const km = document.getElementById('km');
+        const spinner = document.getElementById('spinner');
+        var delayInMilliseconds = 1000;
         var latLongAtual = [latitude.value, longitude.value]
         var zoomDoMapa = 10
         /*no set view vc coloca a latitude, longitude e depois o zoom*/
@@ -95,8 +115,15 @@
 
         var tipo = latitude.value.toString();
         //console.log("tipo retorna: " + typeof(tipo));
-        function buscar() {
+        function startSpinner(){
+            spinner.style.visibility = 'visible';
 
+            setTimeout(function() {
+                buscar();
+            }, delayInMilliseconds);
+        }
+        function buscar() {
+                //spinner.style.visibility = 'visible';
                 var retorno;
                 $.ajax(
                     {
@@ -112,6 +139,7 @@
                         async: false,
                         success: function (data) {
                             retorno = data;
+                            spinner.style.visibility = 'hidden';
                         }
                     });
                 //console.log(retorno);
