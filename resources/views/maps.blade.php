@@ -123,7 +123,6 @@
             }, delayInMilliseconds);
         }
         function buscar() {
-                //spinner.style.visibility = 'visible';
                 var retorno;
                 $.ajax(
                     {
@@ -149,7 +148,7 @@
                     //console.log(km.value);
                     if(parseFloat(retorno[i].KM) < km.value) {
                         lugar = [
-                            retorno[i].Hotel,
+                            retorno[i].Hotel + ", Dist:" + retorno[i].KM + "km" + ", Vlr:" + " (EUR)" + retorno[i].EUR,
                             retorno[i].Latitude,
                             retorno[i].Longitude
                         ]

@@ -75,3 +75,6 @@ OR
 <p align="center"><img src="2022-09-19_22-19.png" width="600"></p>
 
 - Renato Lucena 2022
+
+vuex openstreetmap
+https://ej2.syncfusion.com/vue/documentation/maps/providers/map-provider/
