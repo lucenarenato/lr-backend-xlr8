@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('maps', function () {
     return view('maps');
 });
+
+/*Route::get('{path}', function () {
+    return view('index');
+})->where('path', '(.*)');*/
